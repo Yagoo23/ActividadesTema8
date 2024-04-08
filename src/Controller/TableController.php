@@ -6,18 +6,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-const NUM = 4;
+
 
 class TableController extends AbstractController
 {
-    #[Route('/table/{filas}/{columnas}', name: 'app_table', requirements: ['filas' => '\d+', 'columnas' => '\d+'])]
-    public function index($filas=NUM,$columnas=NUM): Response
+    private const NUM = 4;
+    private const NUM_MAX = 100;
+    private const NUM_MIN = 0;
+
+    #[Route('/table/{filas}/{columnas}', name: 'app_table', requirements: ['filas' => '(<[1-9]+\d*>)', 'columnas' => '(<[1-9]+\d*>)'])]
+    public function index($filas=self::NUM,$columnas=self::NUM): Response
     {
         $arrayBidimensional = [];
         for ($i = 0; $i < $filas; $i++) {
             $fila = [];
             for ($j = 0; $j < $columnas; $j++) {
-                $fila[] = random_int(0, 100);
+                $fila[] = random_int(self::NUM_MIN, self::NUM_MAX);
             }
             $arrayBidimensional[] = $fila;
         }
