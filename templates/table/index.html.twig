@@ -26,7 +26,7 @@
 				{% for fila in arrayBidimensional %}
 					<tr>
 						{% for valor in fila %}
-							<td>{{ valor }}</td>
+							<td><a class="nav-link active" aria-current="page" href="{{path('app_lucky_number',{'max':valor})}}">{{ valor }}</a></td>
 						{% endfor %}
 					</tr>
 				{% endfor %}
@@ -40,6 +40,7 @@
 			<li>Your template at
 				<code>C:/Users/a20yagocg/Desktop/DAW/Primero/3ev/CServidor/UD8/my_first_symf_project/templates/lucky/index.html.twig</code>
 			</li>
+			<li><a href="{{path('app_lucky_number',{'max':10})}}">Enlace a LuckyController</a></li>
 		</ul>
 
 	</div>

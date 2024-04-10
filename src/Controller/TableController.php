@@ -14,7 +14,7 @@ class TableController extends AbstractController
     private const NUM_MAX = 100;
     private const NUM_MIN = 0;
 
-    #[Route('/table/{filas}/{columnas}', name: 'app_table', requirements: ['filas' => '(<[1-9]+\d*>)', 'columnas' => '(<[1-9]+\d*>)'])]
+    #[Route('/table/{filas}/{columnas}', name: 'app_table', requirements: ['filas' => '\d+', 'columnas' => '\d+'])]
     public function index($filas=self::NUM,$columnas=self::NUM): Response
     {
         $arrayBidimensional = [];
