@@ -16,7 +16,10 @@
 	</head>
 	<div class="container">
 		<body>
-			{% block body %}{% endblock %}
+		<div class="container">
+		{% include "common/_menu.html.twig" %}
+		{% block body %}{% endblock %}
+		</div>
 		</body>
 	</div>
 </html>
