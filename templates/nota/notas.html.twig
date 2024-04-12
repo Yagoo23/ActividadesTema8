@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TableController!
+{% endblock %}
+
+{% block body %}
+	<div class="example-wrapper">
+		<h1 class="text-info">Hello
+			{{ controller_name }}! ✅</h1>
+
+		<table class="table">
+			<thead>
+				<th>ID</th>
+				<th>Título</th>
+				<th>Descripción</th>
+			</thead>
+			{% for nota in notas %}
+				<tr>
+					<td>{{ nota.id }}</td>
+					<td>{{ nota.titulo }}</td>
+					<td>{{ nota.descripcion }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+
+		<ul>
+			<li>Your controller at
+				<code>C:/Users/a20yagocg/Desktop/DAW/Primero/3ev/CServidor/UD8/my_first_symf_project/src/Controller/LuckyController.php</code>
+			</li>
+			<li>Your template at
+				<code>C:/Users/a20yagocg/Desktop/DAW/Primero/3ev/CServidor/UD8/my_first_symf_project/templates/lucky/index.html.twig</code>
+			</li>
+		</ul>
+
+	</div>
+{% endblock %}
