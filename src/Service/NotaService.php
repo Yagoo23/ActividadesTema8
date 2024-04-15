@@ -5,11 +5,12 @@ namespace App\Service;
 use App\Entity\Nota;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\NotaRepository;
+use Doctrine\ORM\EntityManager;
 
 class NotaService
 {
-    private $entityManager;
-    private $notaRepository;
+    private EntityManager $entityManager;
+    private NotaRepository $notaRepository;
 
     public function __construct(EntityManagerInterface $entityManager,NotaRepository $notaRepository)
     {
