@@ -11,8 +11,7 @@ class NotaService
 {
     public function __construct(private EntityManagerInterface $entityManager,private NotaRepository $notaRepository)
     {
-        $this->entityManager = $entityManager;
-        $this->notaRepository = $notaRepository;
+        
     }
 
     public function crearNota(Nota $nota)
