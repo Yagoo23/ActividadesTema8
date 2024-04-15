@@ -10,13 +10,13 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class NotaController extends AbstractController
 {
-    private $notaService;
 
-    public function __construct(NotaService $notaService) {
-        $this->notaService = $notaService;
+    public function __construct(private NotaService $notaService) {
+        
     }
+
     #[Route('/nota/new', name: 'app_nota_new')]
-    public function crearNota(NotaService $notaService):Response
+    public function crearNota ():Response
     {
         $nota = new Nota();
         $nota->setTitulo('Nota nueva');
