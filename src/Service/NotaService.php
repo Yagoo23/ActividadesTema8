@@ -9,10 +9,7 @@ use Doctrine\ORM\EntityManager;
 
 class NotaService
 {
-    private EntityManager $entityManager;
-    private NotaRepository $notaRepository;
-
-    public function __construct(EntityManagerInterface $entityManager,NotaRepository $notaRepository)
+    public function __construct(private EntityManagerInterface $entityManager,private NotaRepository $notaRepository)
     {
         $this->entityManager = $entityManager;
         $this->notaRepository = $notaRepository;
