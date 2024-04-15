@@ -5,7 +5,6 @@ namespace App\Service;
 use App\Entity\Nota;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\NotaRepository;
-use Doctrine\ORM\EntityManager;
 
 class NotaService
 {

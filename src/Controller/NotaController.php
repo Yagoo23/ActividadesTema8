@@ -30,7 +30,7 @@ class NotaController extends AbstractController
         ]);
     }
 
-    #[Route('/nota/tabla', name: 'app_nota_tabla')]
+    #[Route('/nota', name: 'app_nota_tabla')]
     public function mostrarNotas()
     {
         $notas = $this->notaService->getAllNotas();
