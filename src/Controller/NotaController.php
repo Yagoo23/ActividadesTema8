@@ -16,20 +16,18 @@ class NotaController extends AbstractController
     public function __construct(NotaService $notaService) {
         $this->notaService = $notaService;
     }
-    #[Route('/nota', name: 'app_nota_new')]
-    public function crearNota(EntityManagerInterface $entityManager)
+    #[Route('/nota/new', name: 'app_nota_new')]
+    public function crearNota(EntityManagerInterface $entityManager):Response
     {
         $nota = new Nota();
-        $nota->setTitulo('Nota creada en el apartado B');
-        $nota->setDescripcion('Guardada en la base de datos a través de NotaService');
+        $nota->setTitulo('Nota nueva');
+        $nota->setDescripcion('Probando el enlace');
 
         $this->notaService->crearNota($nota);
 
         return $this->render('nota/index.html.twig', [
             'controller_name' => 'NotaController',
-            'nota_id' => $nota->getId(),
-            'titulo'=> $nota->getTitulo(),
-            'descripcion' => $nota->getDescripcion()
+            'nota' => $nota
         ]);
     }
 

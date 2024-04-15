@@ -11,7 +11,9 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    <p>Creada la nota con id {{nota_id}}. Su título es {{titulo}} y tiene la siguiente descripción: {{descripcion}}.</p>
+    <p>Creada la nota con id {{nota.id}}. Su título es {{nota.titulo}} y tiene la siguiente descripción: {{nota.descripcion}}.</p>
+
+    <a class="text-info" href="{{path('app_nota_tabla')}}">Para ver las notas creadas pulsa aquí.</a>
 
     This friendly message is coming from:
     <ul>
