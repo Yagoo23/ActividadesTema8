@@ -11,12 +11,13 @@ use Symfony\Component\Routing\Attribute\Route;
 class NotaController extends AbstractController
 {
 
-    public function __construct(private NotaService $notaService) {
-        
+    public function __construct(private NotaService $notaService)
+    {
+
     }
 
     #[Route('/nota/new', name: 'app_nota_new')]
-    public function crearNota ():Response
+    public function crearNota(): Response
     {
         $nota = new Nota();
         $nota->setTitulo('Nota nueva');
@@ -40,4 +41,16 @@ class NotaController extends AbstractController
             'notas' => $notas
         ]);
     }
+
+    #[Route('/nota/{id}',name: 'app_nota_nota')]
+    public function show(Nota $nota): Response
+    {
+        $this->addFlash('success', 'Hemos encontrado la nota.');
+
+        return $this->render('nota/detail.html.twig', [
+            'controller_name' => 'NotaController',
+            'nota' => $nota
+        ]);
+    }
 }
+
