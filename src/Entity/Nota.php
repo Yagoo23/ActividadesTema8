@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\NotaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator as AppValidator;
+
 
 #[ORM\Entity(repositoryClass: NotaRepository::class)]
+#[AppValidator\NotaTituloUnico]
 class Nota
 {
     #[ORM\Id]
@@ -13,9 +17,11 @@ class Nota
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 50)]
     private ?string $titulo = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $descripcion = null;
 
